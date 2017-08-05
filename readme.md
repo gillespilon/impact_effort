@@ -10,9 +10,9 @@ Download the data file:
 
 [Impact v. effort data file](https://drive.google.com/open?id=0BzrdQfHR2I5DMFZVVG1TMnhWOFU)
 
-# Methodology
+## Methodology
 
-I will write the methodology for this repository.
+An impact v. effort grid is drawn using a scatter plot with pandas.DataFrame.plot.scatter. Points are annotated with matplotlib.axes.Axes.annotate. The 'grid' is created with matplotlib.axes.Axes.axvline and matplotlib.axes.Axes.avhline.
 
 # License
 
