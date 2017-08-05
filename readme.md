@@ -1,6 +1,8 @@
 # Impact v. effort scatter plot
 
-I will write the purpose for this repository.
+## In brevi
+
+It is a grid or matrix to help in deciding which things to work on. It focuses on the impact of doing something v. the effort required.
 
 # Data
 
