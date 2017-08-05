@@ -6,7 +6,9 @@ It is a grid or matrix to help in deciding which things to work on. It focuses o
 
 ## Data
 
-I will write where to download the data.
+Download the data file:
+
+[Impact v. effort data file](https://drive.google.com/open?id=0BzrdQfHR2I5DMFZVVG1TMnhWOFU)
 
 # Methodology
 
