@@ -14,6 +14,10 @@ Download the data file:
 
 An impact v. effort grid is drawn using a scatter plot with pandas.DataFrame.plot.scatter. Points are annotated with matplotlib.axes.Axes.annotate. The 'grid' is created with matplotlib.axes.Axes.axvline and matplotlib.axes.Axes.avhline.
 
+## References
+
+Add references here.
+
 ## License
 
 Copyright (c) 2017 GILLES PILON <gillespilon13@gmail.com>.
