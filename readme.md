@@ -8,7 +8,7 @@ It is a grid or matrix to help in deciding which things to work on. It focuses o
 
 Download the data file:
 
-[Impact v. effort data file](https://drive.google.com/open?id=0BzrdQfHR2I5DMFZVVG1TMnhWOFU)
+- [Impact v. effort data file](https://drive.google.com/open?id=0BzrdQfHR2I5DMFZVVG1TMnhWOFU)
 
 ## Methodology
 
@@ -22,7 +22,7 @@ Health Quality Ontario. "Impact/Effort Decision Making Grid." [(http://www.hqont
 
 ## License
 
-Copyright (c) 2017 GILLES PILON <gillespilon13@gmail.com>.
+Copyright (c) 2018 GILLES PILON <gillespilon13@gmail.com>.
 
 Permission to use, copy, modify, and distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
 
