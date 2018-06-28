@@ -1,6 +1,45 @@
 #! /usr/bin/env python3
 
+# coding: utf-8
+
 # # Impact v. effort scatter plot
+
+# # Document information
+
+# <table align="left">
+#     <tr>
+#         <th class="text-align:left">Title</th>
+#         <td class="text-align:left">Impact v. effort scatter plot</td>
+#     </tr>
+#     <tr>
+#         <th class="text-align:left">Last modified</th>
+#         <td class="text-align:left">2018-06-27</td>
+#     </tr>
+#     <tr>
+#         <th class="text-align:left">Author</th>
+#         <td class="text-align:left">Gilles Pilon <gillespilon13@gmail.com></td>
+#     </tr>
+#     <tr>
+#         <th class="text-align:left">Status</th>
+#         <td class="text-align:left">Active</td>
+#     </tr>
+#     <tr>
+#         <th class="text-align:left">Type</th>
+#         <td class="text-align:left">Jupyter notebook</td>
+#     </tr>
+#     <tr>
+#         <th class="text-align:left">Created</th>
+#         <td class="text-align:left">2017-07-31</td>
+#     </tr>
+#     <tr>
+#         <th class="text-align:left">File name</th>
+#         <td class="text-align:left">impact_effort_scatter_plot.ipynb</td>
+#     </tr>
+#     <tr>
+#         <th class="text-align:left">Other files required</th>
+#         <td class="text-align:left">impact_effort.csv</td>
+#     </tr>
+# </table>
 
 # ## In brevi
 #
@@ -16,42 +55,50 @@
 #
 # An impact v. effort grid is drawn using a scatter plot with pandas.DataFrame.plot.scatter. Points are annotated with matplotlib.axes.Axes.annotate. The 'grid' is created with matplotlib.axes.Axes.axvline and matplotlib.axes.Axes.avhline.
 
-# In[1]:
-
+# Import the required librairies and magics.
 import pandas as pd
 import matplotlib.pyplot as plt
 
+# Read the data.
 impact_effort = pd.read_csv('impact_effort.csv')
 
-title = 'Impact v. Effort'
-subtitle = 'Symphony Processes'
+# Set the labels.
+title = 'Impact versus effort'
+subtitle = 'Potential controls'
 yaxislabel = 'Impact'
 xaxislabel = 'Effort'
 
-ax = impact_effort.plot.scatter(x='effort', y='impact', marker='o', legend=False)
+# Use a colour-blind friendly colormap, "Paired".
+import matplotlib.cm as cm
+dots_c, vhlines_c, *_ = cm.Paired.colors
+
+# Plot the scatter plot.
+ax = impact_effort.plot.scatter(x='effort', y='impact', marker='o',\
+                                color=dots_c, legend=False)
 for spine in 'right', 'top':
     ax.spines[spine].set_color('none')
-
 ax.set_title(title + '\n' + subtitle, fontweight="bold")
-ax.set_ylabel(yaxislabel)
-ax.set_xlabel(xaxislabel)
-
+ax.set_ylabel(yaxislabel, fontweight="bold")
+ax.set_xlabel(xaxislabel, fontweight="bold")
 for i, txt in enumerate( impact_effort.process ):
-    ax.annotate( txt, ( impact_effort.effort[i] + 1, impact_effort.impact[i] + 1 ) )
+    ax.annotate( txt, ( impact_effort.effort[i] + 1,\
+                        impact_effort.impact[i] + 1 ) )
+# Set the limits of the axes.
 
 ax.set_ylim(0, 100)
 ax.set_xlim(0, 100)
 # Plot horizontal reference line
-ax.axhline(y=50, color='r')
+ax.axhline(y=50, color=vhlines_c)
 # Plot vertical reference line
-ax.axvline(x=50, color='r')
+ax.axvline(x=50, color=vhlines_c)
+# Save the graphs in svg, pdf, and png formats.
 ax.figure.savefig('impact_effort.svg', format='svg')
 ax.figure.savefig('impact_effort.pdf', format='pdf')
 ax.figure.savefig('impact_effort.png', format='png')
-
 
 # ## References
 #
 # American Society for Quality. "Impact Effort Matrix." [(http://asq.org/healthcare-use/why-quality/impact-effort.html)](http://asq.org/healthcare-use/why-quality/impact-effort.html). Accessed 2017-08-08.
 #
 # Health Quality Ontario. "Impact/Effort Decision Making Grid." [(http://www.hqontario.ca/Portals/0/documents/qi/learningcommunity/pc-impact-effort-decision-making-criteria-chronic-disease-roadmap-resource-en.pdf)](http://www.hqontario.ca/Portals/0/documents/qi/learningcommunity/pc-impact-effort-decision-making-criteria-chronic-disease-roadmap-resource-en.pdf). Accessed 2017-08-08.
+
