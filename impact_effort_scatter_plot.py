@@ -58,6 +58,8 @@
 # Import the required librairies and magics.
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.cm as cm
+
 
 # Read the data.
 impact_effort = pd.read_csv('impact_effort.csv')
@@ -69,12 +71,14 @@ yaxislabel = 'Impact'
 xaxislabel = 'Effort'
 
 # Use a colour-blind friendly colormap, "Paired".
-import matplotlib.cm as cm
-dots_c, vhlines_c, *_ = cm.Paired.colors
+c = cm.Paired.colors
+# c[0] c[1] ... c[11]
+# See "paired" in "qualitative colormaps"
+# https://matplotlib.org/tutorials/colors/colormaps.html
 
 # Plot the scatter plot.
 ax = impact_effort.plot.scatter(x='effort', y='impact', marker='o',\
-                                color=dots_c, legend=False)
+                                color=c[0], legend=False)
 for spine in 'right', 'top':
     ax.spines[spine].set_color('none')
 ax.set_title(title + '\n' + subtitle, fontweight="bold")
@@ -88,9 +92,9 @@ for i, txt in enumerate( impact_effort.process ):
 ax.set_ylim(0, 100)
 ax.set_xlim(0, 100)
 # Plot horizontal reference line
-ax.axhline(y=50, color=vhlines_c)
+ax.axhline(y=50, color=c[1])
 # Plot vertical reference line
-ax.axvline(x=50, color=vhlines_c)
+ax.axvline(x=50, color=c[1])
 # Save the graphs in svg, pdf, and png formats.
 ax.figure.savefig('impact_effort.svg', format='svg')
 ax.figure.savefig('impact_effort.pdf', format='pdf')
