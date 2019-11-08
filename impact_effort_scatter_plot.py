@@ -80,7 +80,7 @@ c = cm.Paired.colors
 ax = impact_effort.plot.scatter(x='effort', y='impact', marker='o',\
                                 color=c[0], legend=False)
 for spine in 'right', 'top':
-    ax.spines[spine].set_color('none')
+    ax.spines[spine].set_visible(False)
 ax.set_title(title + '\n' + subtitle, fontweight="bold")
 ax.set_ylabel(yaxislabel, fontweight="bold")
 ax.set_xlabel(xaxislabel, fontweight="bold")
