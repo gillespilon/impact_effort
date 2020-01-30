@@ -30,7 +30,8 @@ def main():
     subtitle = 'Potential controls'
     yaxislabel = 'Impact'
     xaxislabel = 'Effort'
-    impact_effort = pd.read_csv('impact_effort.csv')
+    file_name = 'impact_effort.csv'
+    impact_effort = read_data_file(file_name)
     ax = impact_effort.plot.scatter(x='effort', y='impact', marker='o',
                                     color=c[0], legend=False)
     for spine in 'right', 'top':
@@ -48,6 +49,17 @@ def main():
     ax.figure.savefig('impact_effort.svg', format='svg')
     ax.figure.savefig('impact_effort.pdf', format='pdf')
     ax.figure.savefig('impact_effort.png', format='png')
+
+
+def read_data_file(file_name):
+    '''
+    The data file has three columns:
+    - process - text
+    - effort - integer
+    - impact - integer
+    '''
+    data_file = pd.read_csv(file_name)
+    return data_file
 
 
 if __name__ == '__main__':
