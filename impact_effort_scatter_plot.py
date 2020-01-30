@@ -24,6 +24,7 @@ import matplotlib.pyplot as plt
 
 
 c = cm.Paired.colors
+figure_width_height = (8, 6)
 
 
 def main():
@@ -35,20 +36,34 @@ def main():
         'impact_effort.csv'
     )
     impact_effort = read_data_file(file_name)
-    ax = impact_effort.plot.scatter(x='effort', y='impact', marker='o',
-                                    color=c[0], legend=False)
-    for spine in 'right', 'top':
-        ax.spines[spine].set_visible(False)
+    plot_scatter_annotate(
+        impact_effort,
+        figure_width_height,
+        title, subtitle, x_axis_label, y_axis_label
+    )
+
+
+def plot_scatter_annotate(
+        data,
+        figure_size,
+        title, subtitle,
+        x_axis_label, y_axis_label
+):
+    fig = plt.figure(figsize=figure_size)
+    ax = fig.add_subplot(111)
+    ax.plot(data['effort'], data['impact'], marker='o',
+            color=c[0], linestyle='None')
     ax.set_title(title + '\n' + subtitle, fontweight="bold")
     ax.set_ylabel(y_axis_label, fontweight="bold")
     ax.set_xlabel(x_axis_label, fontweight="bold")
-    for i, txt in enumerate(impact_effort.process):
-        ax.annotate(txt, (impact_effort.effort[i] + 1,
-                          impact_effort.impact[i] + 1))
+    for row, text in enumerate(data['process']):
+        ax.annotate(text, (data['effort'][row] + 1,
+                           data['impact'][row] + 1))
     ax.set_ylim(0, 100)
     ax.set_xlim(0, 100)
     ax.axhline(y=50, color=c[1])
     ax.axvline(x=50, color=c[1])
+    despine(ax)
     ax.figure.savefig('impact_effort.svg', format='svg')
     ax.figure.savefig('impact_effort.pdf', format='pdf')
     ax.figure.savefig('impact_effort.png', format='png')
