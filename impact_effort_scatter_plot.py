@@ -18,8 +18,9 @@ matplotlib.axes.Axes.axvline and matplotlib.axes.Axes.avhline.
 
 
 import pandas as pd
-import matplotlib.pyplot as plt
+import matplotlib.axes as axes
 import matplotlib.cm as cm
+import matplotlib.pyplot as plt
 
 
 c = cm.Paired.colors
@@ -51,6 +52,16 @@ def main():
     ax.figure.savefig('impact_effort.svg', format='svg')
     ax.figure.savefig('impact_effort.pdf', format='pdf')
     ax.figure.savefig('impact_effort.png', format='png')
+
+
+def despine(ax: axes.Axes) -> None:
+    '''
+    Remove the top and right spines of a graph.
+
+    There is only one x axis, on the bottom, and one y axis, on the left.
+    '''
+    for spine in 'right', 'top':
+        ax.spines[spine].set_visible(False)
 
 
 def read_data_file(file_name):
