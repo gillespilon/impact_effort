@@ -24,17 +24,18 @@ import matplotlib.pyplot as plt
 
 
 c = cm.Paired.colors
-figure_width_height = (8, 6)
 
 
 def main():
-    title, subtitle, x_axis_label, y_axis_label, file_name = (
-        'Impact versus effort',
-        'Potential controls',
-        'Impact',
-        'Effort',
-        'impact_effort.csv'
-    )
+    title, subtitle, x_axis_label, y_axis_label,\
+        file_name, figure_width_height = (
+            'Impact versus effort',
+            'Potential controls',
+            'Impact',
+            'Effort',
+            'impact_effort.csv',
+            (8, 6)
+        )
     impact_effort = read_data_file(file_name)
     plot_scatter_annotate(
         impact_effort,
