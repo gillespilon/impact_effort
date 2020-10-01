@@ -2,13 +2,10 @@
 
 
 '''
-Impact v. effort scatter plot
+Create an impact versus effort scatter plot.
+
 It is a grid or matrix to help in deciding which things to work on. It focuses
 on the impact of doing something v. the effort required.
-
-Download the data file:
-
-https://drive.google.com/open?id=0BzrdQfHR2I5DMFZVVG1TMnhWOFU
 '''
 
 
