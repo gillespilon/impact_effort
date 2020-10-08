@@ -1,21 +1,17 @@
 #! /usr/bin/env python3
-
-
-'''
+"""
 Create an impact versus effort scatter plot.
 
 It is a grid or matrix to help in deciding which things to work on. It focuses
 on the impact of doing something v. the effort required.
-'''
+"""
 
-
-import pandas as pd
-import matplotlib.axes as axes
-import matplotlib.cm as cm
 import matplotlib.pyplot as plt
+import matplotlib.axes as axes
+import pandas as pd
 
-
-c = cm.Paired.colors
+colour1 = '#0077bb'
+colour2 = '#33bbee'
 
 
 def main():
@@ -45,7 +41,7 @@ def plot_scatter_annotate(
     fig = plt.figure(figsize=figure_size)
     ax = fig.add_subplot(111)
     ax.plot(data['effort'], data['impact'], marker='o',
-            color=c[0], linestyle='None')
+            color=colour1, linestyle='None')
     ax.set_title(title + '\n' + subtitle, fontweight="bold")
     ax.set_ylabel(y_axis_label, fontweight="bold")
     ax.set_xlabel(x_axis_label, fontweight="bold")
@@ -54,8 +50,8 @@ def plot_scatter_annotate(
                            data['impact'][row] + 1))
     ax.set_ylim(0, 100)
     ax.set_xlim(0, 100)
-    ax.axhline(y=50, color=c[1])
-    ax.axvline(x=50, color=c[1])
+    ax.axhline(y=50, color=colour2)
+    ax.axvline(x=50, color=colour2)
     despine(ax)
     ax.figure.savefig('impact_effort.svg', format='svg')
     ax.figure.savefig('impact_effort.pdf', format='pdf')
