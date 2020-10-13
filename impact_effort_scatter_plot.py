@@ -8,7 +8,7 @@ on the impact of doing something v. the effort required.
 
 import matplotlib.pyplot as plt
 import matplotlib.axes as axes
-import pandas as pd
+import datasense as ds
 
 colour1 = '#0077bb'
 colour2 = '#33bbee'
@@ -81,7 +81,7 @@ def read_data_file(file_name):
     - effort - integer
     - impact - integer
     '''
-    data_file = pd.read_csv(file_name)
+    data_file = ds.read_file(file_name=file_name)
     return data_file
 
 
