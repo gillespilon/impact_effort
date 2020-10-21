@@ -53,9 +53,18 @@ def plot_scatter_annotate(
     ax.axhline(y=50, color=colour2)
     ax.axvline(x=50, color=colour2)
     despine(ax)
-    fig.savefig('impact_effort.svg', format='svg')
-    fig.savefig('impact_effort.pdf', format='pdf')
-    fig.savefig('impact_effort.png', format='png')
+    fig.savefig(
+        fname='impact_effort.svg',
+        format='svg'
+    )
+    fig.savefig(
+        fname='impact_effort.pdf',
+        format='pdf'
+    )
+    fig.savefig(
+        fname='impact_effort.png',
+        format='png'
+    )
 
 
 def despine(ax: axes.Axes) -> None:
