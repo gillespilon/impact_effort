@@ -52,7 +52,7 @@ def plot_scatter_annotate(
     ax.set_xlim(0, 100)
     ax.axhline(y=50, color=colour2)
     ax.axvline(x=50, color=colour2)
-    despine(ax)
+    ds.despine(ax)
     fig.savefig(
         fname='impact_effort.svg',
         format='svg'
@@ -65,22 +65,6 @@ def plot_scatter_annotate(
         fname='impact_effort.png',
         format='png'
     )
-
-
-def despine(ax: axes.Axes) -> None:
-    """
-    Remove the top and right spines of a graph.
-
-    Parameters
-    ----------
-    ax : axes.Axes
-
-    Example
-    -------
-    >>> despine(ax)
-    """
-    for spine in 'right', 'top':
-        ax.spines[spine].set_visible(False)
 
 
 def read_data_file(file_name):
