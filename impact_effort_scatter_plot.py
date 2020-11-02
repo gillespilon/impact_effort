@@ -7,16 +7,14 @@ on the impact of doing something v. the effort required.
 """
 
 import matplotlib.pyplot as plt
-import matplotlib.axes as axes
 import datasense as ds
-
-colour1 = '#0077bb'
-colour2 = '#33bbee'
 
 
 def main():
+    colour1 = '#0077bb'
+    colour2 = '#33bbee'
     title, subtitle, x_axis_label, y_axis_label,\
-        file_name, figure_width_height = (
+        file_name, figsize = (
             'Impact versus effort',
             'Potential controls',
             'Impact',
@@ -24,21 +22,30 @@ def main():
             'impact_effort.csv',
             (8, 6)
         )
-    impact_effort = read_data_file(file_name)
+    impact_effort = ds.read_file(file_name=file_name)
     plot_scatter_annotate(
-        impact_effort,
-        figure_width_height,
-        title, subtitle, x_axis_label, y_axis_label
+        data=impact_effort,
+        figsize=figsize,
+        title=title,
+        subtitle=subtitle,
+        x_axis_label=x_axis_label,
+        y_axis_label=y_axis_label,
+        colour1=colour1,
+        colour2=colour2
     )
 
 
 def plot_scatter_annotate(
         data,
-        figure_size,
-        title, subtitle,
-        x_axis_label, y_axis_label
+        figsize,
+        title,
+        subtitle,
+        x_axis_label,
+        y_axis_label,
+        colour1,
+        colour2,
 ):
-    fig = plt.figure(figsize=figure_size)
+    fig = plt.figure(figsize=figsize)
     ax = fig.add_subplot(111)
     ax.plot(data['effort'], data['impact'], marker='o',
             color=colour1, linestyle='None')
@@ -50,8 +57,14 @@ def plot_scatter_annotate(
                            data['impact'][row] + 1))
     ax.set_ylim(0, 100)
     ax.set_xlim(0, 100)
-    ax.axhline(y=50, color=colour2)
-    ax.axvline(x=50, color=colour2)
+    ax.axhline(
+        y=50,
+        color=colour2
+    )
+    ax.axvline(
+        x=50,
+        color=colour2
+    )
     ds.despine(ax)
     fig.savefig(
         fname='impact_effort.svg',
@@ -65,17 +78,6 @@ def plot_scatter_annotate(
         fname='impact_effort.png',
         format='png'
     )
-
-
-def read_data_file(file_name):
-    '''
-    The data file has three columns:
-    - process - text
-    - effort - integer
-    - impact - integer
-    '''
-    data_file = ds.read_file(file_name=file_name)
-    return data_file
 
 
 if __name__ == '__main__':
