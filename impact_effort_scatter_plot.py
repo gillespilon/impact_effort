@@ -51,7 +51,10 @@ def plot_scatter_annotate(
             color=colour1, linestyle='None')
     ax.set_title(title + '\n' + subtitle, fontweight="bold")
     ax.set_ylabel(y_axis_label, fontweight="bold")
-    ax.set_xlabel(x_axis_label, fontweight="bold")
+    ax.set_xlabel(
+        xlabel=x_axis_label,
+        fontweight="bold"
+    )
     for row, text in enumerate(data['process']):
         ax.annotate(text, (data['effort'][row] + 1,
                            data['impact'][row] + 1))
