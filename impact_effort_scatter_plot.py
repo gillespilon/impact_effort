@@ -49,7 +49,10 @@ def plot_scatter_annotate(
     ax = fig.add_subplot(111)
     ax.plot(data['effort'], data['impact'], marker='o',
             color=colour1, linestyle='None')
-    ax.set_title(title + '\n' + subtitle, fontweight="bold")
+    ax.set_title(
+        label=title + '\n' + subtitle,
+        fontweight="bold"
+    )
     ax.set_ylabel(
         ylabel=y_axis_label,
         fontweight="bold"
