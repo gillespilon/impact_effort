@@ -64,7 +64,10 @@ def plot_scatter_annotate(
     for row, text in enumerate(data['process']):
         ax.annotate(text, (data['effort'][row] + 1,
                            data['impact'][row] + 1))
-    ax.set_ylim(0, 100)
+    ax.set_ylim(
+        left=0,
+        right=100
+    )
     ax.set_xlim(
         left=0,
         right=100
