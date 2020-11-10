@@ -65,7 +65,10 @@ def plot_scatter_annotate(
         ax.annotate(text, (data['effort'][row] + 1,
                            data['impact'][row] + 1))
     ax.set_ylim(0, 100)
-    ax.set_xlim(0, 100)
+    ax.set_xlim(
+        left=0,
+        right=100
+    )
     ax.axhline(
         y=50,
         color=colour2
