@@ -93,7 +93,7 @@ def plot_scatter_annotate(
         x=50,
         color=colour2
     )
-    ds.despine(ax)
+    ds.despine(ax=ax)
     fig.savefig(
         fname='impact_effort.svg',
         format='svg'
