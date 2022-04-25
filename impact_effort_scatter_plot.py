@@ -6,7 +6,7 @@ It is a grid or matrix to help in deciding which things to work on. It focuses
 on the impact of doing something v. the effort required.
 """
 
-from typing import Tuple
+from typing import NoReturn, Tuple
 
 import matplotlib.pyplot as plt
 import datasense as ds
@@ -48,7 +48,7 @@ def plot_scatter_annotate(
     y_axis_label: str,
     colour1: str,
     colour2: str,
-) -> None:
+) -> NoReturn:
     fig = plt.figure(figsize=figsize)
     ax = fig.add_subplot(111)
     ax.plot(data["effort"], data["impact"], marker="o", linestyle="None")
