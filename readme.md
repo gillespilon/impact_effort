@@ -14,6 +14,4 @@ An impact versus effort grid is drawn using a scatter plot with pandas.DataFrame
 
 ## References
 
-American Society for Quality. "Impact Effort Matrix." [(http://asq.org/healthcare-use/why-quality/impact-effort.html)](http://asq.org/healthcare-use/why-quality/impact-effort.html). Accessed 2017-08-08.
-
 Health Quality Ontario. "Impact/Effort Decision Making Grid." [(http://www.hqontario.ca/Portals/0/documents/qi/learningcommunity/pc-impact-effort-decision-making-criteria-chronic-disease-roadmap-resource-en.pdf)](http://www.hqontario.ca/Portals/0/documents/qi/learningcommunity/pc-impact-effort-decision-making-criteria-chronic-disease-roadmap-resource-en.pdf). Accessed 2017-08-08.
