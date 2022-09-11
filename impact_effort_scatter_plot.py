@@ -54,6 +54,28 @@ def plot_scatter_annotate(
     colour1: str,
     colour2: str,
 ) -> NoReturn:
+    """
+    Scatter plot of impact versus effort.
+
+    Parameters
+    ----------
+    data : pd.DataFrame,
+        The DataFrame of effort, impact data.
+    figsize : Tuple[float, float],
+        The (width, height) of the figure (in, in).
+    title : str,
+        The title of the Figure.
+    subtitle : str,
+        The subtitle of the Figure.
+    x_axis_label : str,
+        The x-axis label.
+    y_axis_label : str,
+        The y-axis label.
+    colour1 : str,
+        The colour of the plot points.
+    colour2 : str,
+        The colour of the matrix lines.
+    """
     fig, ax = plt.subplots(nrows=1, ncols=1, figsize=figsize)
     ax.plot(
         data["effort"],
