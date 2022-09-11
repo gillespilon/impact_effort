@@ -25,14 +25,8 @@ def main():
     impact_effort = pd.DataFrame(
         {
             "process": [
-                "column1",
-                "column2",
-                "column3",
-                "column4",
-                "column5",
-                "column6",
-                "column7",
-                "column8",
+                "column1", "column2", "column3", "column4",
+                "column5", "column6", "column7", "column8",
             ],
             "effort": [25, 35, 15, 30, 70, 90, 75, 85],
             "impact": [70, 60, 30, 20, 80, 65, 40, 30],
@@ -60,17 +54,22 @@ def plot_scatter_annotate(
     colour1: str,
     colour2: str,
 ) -> NoReturn:
-    fig = plt.figure(figsize=figsize)
-    ax = fig.add_subplot(111)
+    fig, ax = plt.subplots(nrows=1, ncols=1, figsize=figsize)
     ax.plot(
-        data["effort"], data["impact"], color=colour1, linestyle="None",
+        data["effort"],
+        data["impact"],
+        color=colour1,
+        linestyle="None",
         marker="o"
     )
     ax.set_title(label=title + "\n" + subtitle)
     ax.set_ylabel(ylabel=y_axis_label)
     ax.set_xlabel(xlabel=x_axis_label)
     for row, text in enumerate(data["process"]):
-        ax.annotate(text, (data["effort"][row] + 1, data["impact"][row] + 1))
+        ax.annotate(
+            text=text,
+            xy=(data["effort"][row] + 1, data["impact"][row] + 1)
+        )
     ax.set_ylim(bottom=0, top=100)
     ax.set_xlim(left=0, right=100)
     ax.axhline(y=50, color=colour2)
