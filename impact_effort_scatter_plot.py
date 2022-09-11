@@ -25,16 +25,27 @@ def main():
     impact_effort = pd.DataFrame(
         {
             "process": [
-                "column1", "column2", "column3", "column4", "column5",
-                "column6", "column7", "column8",
+                "column1",
+                "column2",
+                "column3",
+                "column4",
+                "column5",
+                "column6",
+                "column7",
+                "column8",
             ],
             "effort": [25, 35, 15, 30, 70, 90, 75, 85],
             "impact": [70, 60, 30, 20, 80, 65, 40, 30],
         }
     )
     plot_scatter_annotate(
-        data=impact_effort, figsize=figsize, title=title, subtitle=subtitle,
-        x_axis_label=x_axis_label, y_axis_label=y_axis_label, colour1=colour1,
+        data=impact_effort,
+        figsize=figsize,
+        title=title,
+        subtitle=subtitle,
+        x_axis_label=x_axis_label,
+        y_axis_label=y_axis_label,
+        colour1=colour1,
         colour2=colour2,
     )
 
@@ -51,7 +62,10 @@ def plot_scatter_annotate(
 ) -> NoReturn:
     fig = plt.figure(figsize=figsize)
     ax = fig.add_subplot(111)
-    ax.plot(data["effort"], data["impact"], marker="o", linestyle="None")
+    ax.plot(
+        data["effort"], data["impact"], color=colour1, linestyle="None",
+        marker="o"
+    )
     ax.set_title(label=title + "\n" + subtitle)
     ax.set_ylabel(ylabel=y_axis_label)
     ax.set_xlabel(xlabel=x_axis_label)
