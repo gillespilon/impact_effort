@@ -1,18 +1,16 @@
-# Impact v. effort scatter plot
+# Impact versus effort plot
 
 ## In brevi
 
-It is a grid or matrix to help in deciding which things to work on. It focuses on the impact of doing something v. the effort required.
+It is a grid or matrix to help in deciding which things to work on. It focuses on the impact of doing something versus the effort required.
 
 ## Data
 
-Download the data file:
-
-- [Impact v. effort data file](https://drive.google.com/open?id=0BzrdQfHR2I5DMFZVVG1TMnhWOFU)
+The data are built into the .py file.
 
 ## Methodology
 
-An impact v. effort grid is drawn using a scatter plot with pandas.DataFrame.plot.scatter. Points are annotated with matplotlib.axes.Axes.annotate. The 'grid' is created with matplotlib.axes.Axes.axvline and matplotlib.axes.Axes.avhline.
+An impact versus effort grid is drawn using a scatter plot with pandas.DataFrame.plot.scatter. Points are annotated with matplotlib.axes.Axes.annotate. The 'grid' is created with matplotlib.axes.Axes.axvline and matplotlib.axes.Axes.avhline.
 
 ## References
 
