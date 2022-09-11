@@ -12,7 +12,7 @@ The data are built into the .py file.
 
 An impact versus effort grid is drawn using a scatter plot with pandas.DataFrame.plot.scatter. Points are annotated with matplotlib.axes.Axes.annotate. The 'grid' is created with matplotlib.axes.Axes.axvline and matplotlib.axes.Axes.avhline.
 
-[Impact versus effort plot](impact_effort.svg)
+![Impact versus effort plot](impact_effort.svg)
 
 ## References
 
